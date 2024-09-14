@@ -10,7 +10,7 @@
         * create-react-app의 타입스크립트 템플릿 사용하기
 
     -- 스타일링 
-       * CSS-in-JS(Emotion) 사용하기
+        * CSS-in-JS(Emotion) 사용하기
     
         
       
