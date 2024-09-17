@@ -29,4 +29,60 @@
         * eslint 9버전 부터는 eslint를 설치 했을 때  .eslintrc.js가 생성되지 않고...
           eslint.config.js 가 생성된다...(이것 때문에 조금 애 먹었다... 책을 보며 혼자 공부 하다 보니 이 부분에서 막혀 버렸다)
           https://eslint.org/docs/latest/use/configure/configuration-files 참고해 해결했다.(더 열심히 하자👍)
-         
+
+## Day03 ( 간단한 카운터 앱 만들어 보기)
+    > Props 와 State
+        * 리액트의 핵심 개념 
+        * props '특성'이라는 의미를 갖는다 리액트 컴포넌트의 특성을 나타내며 부모 컴포넌트가 자식 컴포넌트에 데이터를 전달할 수 있다
+          부모컴포넌트로부터 받은 데이터는 자식 컴포넌트에서 변경이 불가하다
+        * state는 '상태'를 의미한다. 컴포넌트의 현재 상태를 의미하며 컴포넌트 상태는 변경이 가능하다. 유동적인 데이터를 다룰 때 사용된다.
+   
+    
+    > 카운터 앱
+<img src="https://github.com/user-attachments/assets/fd9d28c9-ca73-4091-8832-21473991edc0" width=300>
+
+> 1. CSS-in-JS 라이브러리인 Emotion을 사용하여 스타일링 하였다
+>
+> 2. 리액트가 제공하는 useState 훅을 사용하여 버튼 클릭시 유동적으로 데이터가 변하게 하였다
+>    > const [변수명, set함수명] = useState(데이터초깃값)
+>    >
+>    > // 배열[0] : 데이터 초깃값이 들어간 변수
+>    >
+>    > // 배열[1] : 데이터를 수정할 수 있는 set함수
+>
+> 3. Porops를 알아보기 위해 Button , Label 컴포넌트를 별도의 파일로 분리하였다
+### Button
+```javascript
+/*
+    insterface 인터페이스명 {
+        변수명 : 변수타입;
+    }
+  */
+    interface Props{
+        readonly label: string;
+        readonly onClick: () => void;
+    }
+  export const Button = ({ label, onClick }: Props) => {
+    return <Container onClick={onClick}>{label}</Container>;
+  }
+```
+### Label
+```javascript
+interface Props {
+    readonly data : number;
+}
+export const Label = ({data}: Props) => {
+    return <Container>{data}</Container>
+};
+```
+### App
+```javascript
+   <Container>
+        <Title>Counter App</Title>
+          <Contents>
+            <Button label="-" onClick={sub}/>
+            <Label data={counter}/>
+            <Button label="+" onClick={add} />
+          </Contents>
+    </Container>
+```
