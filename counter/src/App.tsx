@@ -46,13 +46,11 @@ function App() {
   return (
     <Container>
         <Title>Counter App</Title>
-
           <Contents>
             <Button label="-" onClick={sub}/>
             <Label data={counter}/>
             <Button label="+" onClick={add} />
           </Contents>
-
     </Container>
   );
 }
