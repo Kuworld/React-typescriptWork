@@ -50,7 +50,7 @@
 >    >
 >    > // 배열[1] : 데이터를 수정할 수 있는 set함수
 >
-> 3. Porops를 알아보기 위해 Button , Label 컴포넌트를 별도의 파일로 분리하였다
+> 3. Props를 알아보기 위해 Button , Label 컴포넌트를 별도의 파일로 분리하였다
 ### Button
 ```javascript
 /*
