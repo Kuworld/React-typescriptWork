@@ -51,7 +51,7 @@
 >    > // 배열[1] : 데이터를 수정할 수 있는 set함수
 >
 > 3. Props를 알아보기 위해 Button , Label 컴포넌트를 별도의 파일로 분리하였다
-### Button
+### Button/index.tsx
 ```javascript
 /*
     insterface 인터페이스명 {
@@ -66,7 +66,7 @@
     return <Container onClick={onClick}>{label}</Container>;
   }
 ```
-### Label
+### Label/index.tsx
 ```javascript
 interface Props {
     readonly data : number;
