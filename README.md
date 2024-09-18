@@ -84,5 +84,63 @@ export const Label = ({data}: Props) => {
             <Label data={counter}/>
             <Button label="+" onClick={add} />
           </Contents>
-    </Container>
+    </Container>            
 ```
+## Day04 (Class Component)
+> 1. 클래스 컴포넌트(Class Component)
+>     >
+>     > 리액트 훅이 나오기 전까지 클래스 컴포넌트를 기본 컴포넌트로 사용하였다.             
+>     > 함수 컴포넌트에서는 상태 관리를 하는데 State를 사용할 수 없었기 때문이다.
+>
+> 2. 이전에 함수 컴포넌트를 사용하여 개발한 카운더 앱을 클래스 컴포넌트로 리팩토링 해보았다.
+>     > ### Button/index.tsx
+>     > ```javascript
+>     >     import { Component } from "react";
+>     >     // Component를 리액트로 부터 불러온다
+>     > ```
+>     > ```javascript
+>     >   export class Button extends Component<Props> {
+>     >      render() {
+>     >                const { label, onClick } = this.props;
+>     >            return <Container onClick={onClick} >{ label } </Container>
+>     >      }
+>     >    }
+>     > // export class 클래스 컴포넌트명 extends Component<Props의 제네릭, State의 제네릭>{
+>     > //    ...........
+>     > //    } 
+>     > ```
+>     > * 리액트에서 클래스 컴포넌트를 생성하기 위해서는 리액트의 Component 클래스를 상속받아 새로운 클래스를 생성할 필요가 있다.
+>     >
+>     > ### Label/index.tsx
+>     > ```javascript
+>     > export class Label extends Component<Props>{
+>     >  render() {
+>     >    const { data } = this.props;
+>     >    return <Container>{ data }</Container>
+>     >  }
+>     >}
+>     > ```
+>     >
+>     > * Label 컴포넌트도 클래스 컴포넌트로 리팩토링 해보았다.
+>
+> 3. 라이프사이클 함수
+>     > * constructor 함수 : 생성자 함수
+>     > 
+>     > * render 함수 : 클래스 컴포넌트의 화면 표시부분을 정의하는 데 사용
+>     > 
+>     > * getDerivedStateFromProps 함수 : 부모 컴포넌트로부터 받은 Props와 State를 동기화할 때 사용
+>     > 
+>     > * componentDidMount 함수 : 컴포넌트가 화면에 처음 표시된 후 한번만 호출, Ajax를 통한 데이터 습득이나 다른 자바스크립트 라이브러리와 연동을 수행할 때 주로 사용.
+>     >
+>     > * shouldComponentUpdate 함수 : 특정 이유로 Props나 State가 변경되었을 경우 화면을 다시 리렌더링 하지 않게 제어.
+>     >
+>     > * getSnapshotBeforeUpdate 함수 : 화면을 갱신하는 동안 수동으로 스크롤 위치를 고정해야 할때 사용
+>     >
+>     > * componentDidUpdate 함수 : getSnapshotBeforeUpdate와 함께 수동으로 스크롤을 고정시킬 때 사용
+>     > 
+>     > * componentWillUnmount 함수 : componentDidUpdate 함수에서 연동한 자바스크립트 라이브러리를 해제하거나 setTimeout, setInterval 등의 타이머를 해제할 때 사용
+>     >
+>     > * componentDidCatch 함수 : render함수의 JSX 부분에서 발생하는 에러를 예외 처리할 수 있게 도와주는 함수 
+
+
+
