@@ -142,5 +142,6 @@ export const Label = ({data}: Props) => {
 >     >
 >     > * componentDidCatch 함수 : render함수의 JSX 부분에서 발생하는 에러를 예외 처리할 수 있게 도와주는 함수 
 
+## Day05 (할 일 목록 앱 만들기 진행 중)
 
 
